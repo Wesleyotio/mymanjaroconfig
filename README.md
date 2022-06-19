@@ -1,6 +1,6 @@
 <img style=" width: 700px; 
     margin-left: auto;
-    margin-right: auto;" src="manjaro_logo.png">
+    margin-right: auto;" src="./images/manjaro_logo.png">
 
  # Guia de configuração para distro Manjaro
 
