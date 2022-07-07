@@ -101,15 +101,63 @@ Até onde eu vi a principal diferença entre o pacman e Yay se deve ao fato de d
   ```sh
  cd /tmp
  git clone https://aur.archlinux.org/yay.git
-  ``` 
+  ```
 Agora entramos na pasta do projeto e executamos o comando de instalação
 
  ```sh
  cd yay
  makepkg -si
   ``` 
-Com a instalaçao concluída pode usar mesma sintaxe do pacman que funciona de boas.
+Com a instalação concluída pode usar mesma sintaxe do pacman que funciona de boas.
 
 # Configurando o terminal e o VScode
 
-Agora chegamos na parte mais legal e  que me deu mais trabalho até agora. 
+Agora chegamos na parte mais legal e que me deu mais trabalho até agora. A ideia é deixa nosso terminal mais "bonitinho" com algumas informações relevantes e bem performático. Para isso vamos começar instalando o [zsh](https://www.zsh.org).
+
+Primeiro verificamos qual o SHELL estamos usando no momento. 
+```sh
+echo $SHELL
+```
+provavelmente essa será sua resposta
+```sh
+/usr/bin/bash
+```
+Isso indica que nosso SHELL padrão é o bash, agora vamos instalar o zsh usando pacman ou yay você que escolhe.
+```sh
+sudo yay -S zsh
+```
+Feito isso, voce pode nota que o zsh não é iniciado imediatamente para isso precisamos torna-lo nosso SHELL padrão, mas antes vamos listas todos os SHELLs instalados na maquina.
+ ```sh
+chsh -l
+```
+Teremos alguma resposta semelhante a esta.
+ ```sh
+/bin/sh
+/bin/bash
+/bin/zsh
+/usr/bin/zsh
+/usr/bin/git-shell
+```
+E por fim usamos o comando.
+
+ ```sh
+chsh -s caminho_do_shell_escolhido
+```
+Agora que temos o zsh instalado vamos deixa-lo "bonitinho", pra isso precisamos de fontes que suportem ícones. Eu uso a **MesloLGS**
+
+- [MesloLGS NF Bold Italic](fonts/MesloLGS/MesloLGS%20NF%20Bold%20Italic.ttf)
+- [MesloLGS NF Bold](fonts/MesloLGS/MesloLGS%20NF%20Bold.ttf)
+- [MesloLGS NF Italic](fonts/MesloLGS/MesloLGS%20NF%20Italic.ttf)
+- [MesloLGS NF Regular](fonts/MesloLGS/MesloLGS%20NF%20Regular.ttf)
+
+Com as fontes baixadas agora vc deve criar um diretório com essa fonte no diretório de fontes do sistema.
+
+```sh
+sudo mkdir meslolgs /usr/share/fonts
+```
+Agora no diretório onde se encontram as fonts basta copiar para a pasta recém criada
+
+ ```sh
+cp nome_fonte /usr/share/fonts/meslolgs 
+```
+Verifique se a fonte está ativa procurando por ela em qualquer editor de texto.
