@@ -15,8 +15,14 @@
     - Instalando o manjaro
     - Pos-instalação do manjaro
 2. Conhecendo os gerenciadores de pacotes
-3. Configurando o terminal e o VScode
-4. Extras
+    - Pacman
+    - Yay
+4. Configurando o terminal e o VScode
+    - Zsh
+    - Oh-my-zsh
+    - plugins
+    - Vscode
+5. Extras
 
 
 # Instalação do S.O
@@ -160,4 +166,98 @@ Agora no diretório onde se encontram as fonts basta copiar para a pasta recém 
  ```sh
 cp nome_fonte /usr/share/fonts/meslolgs 
 ```
-Verifique se a fonte está ativa procurando por ela em qualquer editor de texto.
+Verifique se a fonte está ativa procurando por ela em qualquer editor de texto, você provavelmente verá algo como a imagem a seguir.
+
+<img style=" width: 400px; 
+    margin-left: auto;
+    margin-right: auto;" src="./images/font_in_use.png">
+
+Agora damos inicio a instalação do framework que gerencia o as configurações do Zsh o famoso [Oh-My-Zsh](https://ohmyz.sh) aqui também deixo o [link](https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a) de um dos artigos que me ajudaram a fazer essa configuração.
+
+**OBS:** O comando a seguir só ira funcionar se antes você possui o git e o wget instalados, caso não tenha use estes scripts.
+
+```sh
+sudo yay -Syu
+sudo yay -S git
+sudo yay -S wget
+```
+Para verificar se tudo deu certo mesmo basta averiguar as versões dos pacotes instalados.
+```sh
+git --version
+wget --version
+```
+
+Para realizar a instalação basta executar o script
+```sh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Agora vamos a instalacao dos plugins que tornarão nosso zsh realmente poderoso.
+
+#### **zsh-z**
+ Permite que consultemos rapidamente diretórios acessados com frequência ou recentemente.
+
+ ```sh
+ ```
+  
+#### **zsh-z**
+ Permite que consultemos rapidamente diretórios acessados com frequência ou recentemente.
+
+ ```sh
+ ```
+
+ #### **zsh-autosuggestions**
+ Tendo como base nosso historico de uso do terminal esse plugin sugere qual comando estamos querendo executar e com um seta direita ele escreve o comando.
+
+ ```sh
+ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+ ```
+
+ #### **zsh-syntax-highlighting**
+ Torna o terminal interativo permitindo destaque aos comandos executados pelo Zsh enquanto eles são digitados
+
+ ```sh
+ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+ ```
+Agora com nossos plugins instalados precisamos ativa-los, para isso precisamos editar o arquivo de configuração do Oh-my-zsh.
+
+```sh
+nano ~/.zshrc
+```
+Basta adicionar o nome dos plugins instalados, salvar e reiniciar o terminal. Seu deve ficar assim.
+
+```sh
+plugins=(
+  git
+ 
+  zsh-z
+
+  zsh-autosuggestions
+  
+  zsh-syntax-highlighting
+  
+  )
+```
+Para finalizarmos a instalação do terminal vamos instalar  e configurar o [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+```sh
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+```
+Editamos novamente arquivo de configuração do Oh-my-zsh.
+
+```sh
+nano ~/.zshrc
+```
+
+E alteramos o valor da linha ZSH_THEME
+
+```sh
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
+Ao reiniciarmos o terminal o powerlevl10k pede que você configure sua aparência, nesse momento se você não possuir nenhuma Nerd Fonts instalada os ícones não serão reconhecidos no sistema.
+Quando desejar mudar novamente a aparência do tema execute o script.
+ ```sh
+ p10k configure
+ ```
+ 
