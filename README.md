@@ -172,7 +172,7 @@ Verifique se a fonte está ativa procurando por ela em qualquer editor de texto,
     margin-left: auto;
     margin-right: auto;" src="./images/font_in_use.png">
 
-Agora damos inicio a instalação do framework que gerencia o as configurações do Zsh o famoso [Oh-My-Zsh](https://ohmyz.sh) aqui também deixo o [link](https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a) de um dos artigos que me ajudaram a fazer essa configuração.
+Agora damos inicio a instalação do framework que gerencia as configurações do Zsh o famoso [Oh-My-Zsh](https://ohmyz.sh) aqui também deixo o [link](https://medium.com/tech-notes-and-geek-stuff/install-zsh-on-arch-linux-manjaro-and-make-it-your-default-shell-b0098b756a7a) de um dos artigos que me ajudaram a fazer essa configuração.
 
 **OBS:** O comando a seguir só ira funcionar se antes você possui o git e o wget instalados, caso não tenha use estes scripts.
 
@@ -198,12 +198,7 @@ Agora vamos a instalacao dos plugins que tornarão nosso zsh realmente poderoso.
  Permite que consultemos rapidamente diretórios acessados com frequência ou recentemente.
 
  ```sh
- ```
-  
-#### **zsh-z**
- Permite que consultemos rapidamente diretórios acessados com frequência ou recentemente.
-
- ```sh
+ git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
  ```
 
  #### **zsh-autosuggestions**
@@ -224,7 +219,7 @@ Agora com nossos plugins instalados precisamos ativa-los, para isso precisamos e
 ```sh
 nano ~/.zshrc
 ```
-Basta adicionar o nome dos plugins instalados, salvar e reiniciar o terminal. Seu deve ficar assim.
+Basta adicionar o nome dos plugins instalados, salvar e reiniciar o terminal. O seu deve ficar assim.
 
 ```sh
 plugins=(
@@ -260,4 +255,3 @@ Quando desejar mudar novamente a aparência do tema execute o script.
  ```sh
  p10k configure
  ```
- 
