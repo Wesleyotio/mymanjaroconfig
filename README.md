@@ -255,3 +255,37 @@ Quando desejar mudar novamente a aparência do tema execute o script.
  ```sh
  p10k configure
  ```
+Agora seguimos para a instalação do VScode, vamos usar nesse caso novamente o o gerenciador de pacotes yay, pois o pacote usado pertence a comunidade do AUR do [Arch linux](https://aur.archlinux.org/packages/visual-studio-code-bin) a instalação  é semelhante ao a do yay.
+```sh
+cd /tmp
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin
+makepkg -si
+```
+Agora temos o VScode instalado, mas nosso terminal integrado está reconhecendo nossas fontes então precisamos configurar isso. Então em **configurações** digite *terminal.fontfamily* você verá a fonte usada no momento, basta mudar para nossa fonte baixada e seu ambiente está pronto.  
+
+# Extras
+A partir daqui segue as configurações/aplicações que fazem parte de minha rotina.
+
+### Docker
+ Aqui eu usei o **pacman** mas deixo o [link](https://wiki.archlinux.org/title/docker) pra quem quiser usar o yay.
+
+Instalação
+```sh
+sudo pacman -S docker
+sudo pacman -S docker-compose
+```
+Para inicializar ou desligar use 
+```sh
+sudo systemctl start docker.service
+sudo systemctl stop docker.service
+```
+Use esse comando para verificar o docker está ativo. 
+```sh
+docker ps
+```
+Caso queria iniciar o docker junto com sua maquina sempre use.
+
+ ```sh
+sudo systemctl enable docker.service
+```
