@@ -47,7 +47,7 @@ Como o objetivo desse manual não é focar na instalação e configuração inic
   
 # Gerenciadores de pacotes
 
-Vou supor que tenha visto os videos acima e agora vou tentar explicar como funcioanam os gerenciadores de pacotes do Manjaro.
+Vou supor que tenha visto os videos acima e agora vou tentar explicar como funcionam os gerenciadores de pacotes do Manjaro.
 
 ## Pacman
   Aqui vou somente apresentar como é usado para esta configuração, mas vou deixar aqui o [link](https://wiki.archlinux.org/title/Pacman_(Português)) para você ler e entender melhor o funcionamento deste gerenciador, segue alguns exemplos.
@@ -86,7 +86,7 @@ Se quisermos a versão mais atualizada do discord este será o comando.
   ```
   Neste ponto vale a pena explicar o que cada flag realiza
   * -S: Instalar 
-  * -y: Baixa os pacotes novos do servirdor
+  * -y: Baixa os pacotes novos do servidor
   * -u  atualiza os pacotes instalados.
   
   No caso este pacote já se encontra atualizado em sua versão mais recente e aqui é solicitado reinstalação, como mostrado na figura a seguir.
