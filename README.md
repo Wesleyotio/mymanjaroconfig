@@ -198,7 +198,7 @@ Agora vamos a instalacao dos plugins que tornarão nosso zsh realmente poderoso.
  Permite que consultemos rapidamente diretórios acessados com frequência ou recentemente.
 
  ```sh
- git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+ git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-z
  ```
 
  #### **zsh-autosuggestions**
