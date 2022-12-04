@@ -166,6 +166,12 @@ Agora no diretório onde se encontram as fonts basta copiar para a pasta recém 
  ```sh
 cp nome_fonte /usr/share/fonts/meslolgs 
 ```
+**OBS:** Os emojis nao sao apresentados corretamente nesta distro, para corrigir isso basta executar o seguinte comando no terminal
+
+```
+yay -S noto-fonts-emoji
+```
+
 Verifique se a fonte está ativa procurando por ela em qualquer editor de texto, você provavelmente verá algo como a imagem a seguir.
 
 <img style=" width: 400px; 
