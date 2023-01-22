@@ -8,15 +8,15 @@
 
 Índice
 
-1. Instalação do S.O
+1. [Instalação do S.O](#instalação-do-so)
     - Site oficial
     - Xfce,KDE,Gnome...
     - Usando o Rufus
     - Instalando o manjaro
     - Pos-instalação do manjaro
-2. Conhecendo os gerenciadores de pacotes
-    - Pacman
-    - Yay
+2. [Conhecendo os gerenciadores de pacotes](#gerenciadores-de-pacotes)
+    - [Pacman](#pacman)
+    - [Yay](#yay)
 4. Configurando o terminal e o VScode
     - Zsh
     - Oh-my-zsh
