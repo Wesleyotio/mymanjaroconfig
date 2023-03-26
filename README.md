@@ -166,7 +166,7 @@ Agora no diretório onde se encontram as fonts basta copiar para a pasta recém 
  ```sh
 cp nome_fonte /usr/share/fonts/meslolgs 
 ```
-**OBS:** Os emojis nao sao apresentados corretamente nesta distro, para corrigir isso basta executar o seguinte comando no terminal
+**OBS:** Os emojis não são apresentados corretamente nesta distro, para corrigir isso basta executar o seguinte comando no terminal
 
 ```
 yay -S noto-fonts-emoji
@@ -295,3 +295,69 @@ Caso queria iniciar o docker junto com sua maquina sempre use.
  ```sh
 sudo systemctl enable docker.service
 ```
+### OpenVPN
+
+Este tópico foi criado para demonstrar um caso especifico onde a conexão com a VPN acontece, mas o usuário perde o acesso a internet.
+
+Antes de iniciar, instale os softwares `openvpn` e `NetworkManager-OpenVPN` pelo pacman ou yay pelo comando
+
+```sh
+yay -S networkmanager-openvpn
+```
+```sh
+yay -S openvpn
+```
+Pronto, a partir de agora vou considerar que possui um arquivo de configuração da vpn `myvpn.ovpn` junto de um usuário e senha.
+Copie o arquivo de configuração para o diretório da mostrado pelo comando.
+```sh
+sudo cp /caminho/para/o/arquivo/myvpn.opvpn /etc/openvpn/
+```
+
+Agora edit o arquivo usando o nano
+```sh
+sudo nano /etc/openvpn/myvpn.opvpn 
+```
+
+edit a linha que contêm `auth-user-pass` para ficar assim. 
+```sh
+auth-user-pass /etc/openvpn/mycredentials.txt
+```
+em seguida crie o arquivo no diretório especificado no comando anterior e coloque seu usuário e senha
+
+```sh
+user
+password
+```
+Pronto, agora use o seguinte comando para testar sua conexão
+
+```sh
+sudo openvpn /etc/openvpn/myconfig.opvpn
+```
+Feito isso observe se consegue ter conexão com a internet, se sim então seu arquivo de configuração está correto e você poderá fazer também na interface gráfica. Caso o acesso a internet não esteja funcionando observe se sua saída tem algo parecido como esse apresentado. 
+
+```sh
+2023-03-26 00:37:20 [NEW-OPENVPN] Peer Connection Initiated with [AF_INET]10.10.10.10:1194
+2023-03-26 00:37:24 Options error: Cannot set comp-lzo to 'yes', allow-compression is set to 'no'
+2023-03-26 00:37:24 TUN/TAP device tun0 opened
+2023-03-26 00:37:24 net_iface_mtu_set: mtu 1500 for tun0
+2023-03-26 00:37:24 net_iface_up: set tun0 up
+2023-03-26 00:37:24 net_addr_v4_add: 15.15.18.2/24 dev tun0
+2023-03-26 00:37:24 Initialization Sequence Completed
+2023-03-26 00:37:33 write to TUN/TAP : Invalid argument (fd=-1,code=22)
+2023-03-26 00:37:43 write to TUN/TAP : Invalid argument (fd=-1,code=22)
+2023-03-26 00:37:53 write to TUN/TAP : Invalid argument (fd=-1,code=22)
+```
+Para casos como mostrado acima o problema acontece pelo fato do servidor Openvpn está habilitado para permitir compressão, mas o seu cliente está configurado para desativar a compressão. Para corrigir esse problema basta editar seu arquivo **myconfig.opvpn** e adicionar a seguinte linha
+
+```sh
+comp-lzo yes //ou comp-lzo no caso seu servidor não tenha habilitado compressão
+```
+Agora repita o processo e a conexão estará funcionando corretamente.
+Para realizar o mesmo processo pela interface gráfica basta fazer os seguintes passos:
+
+  1. Clique com o botão direito no ícone de sua rede ativa.
+  2. Navegue pelo menu **Conexões VPN** > **Configurar VPN**
+  3. Clique no ícone **+** para adicionar uma nova conexão
+  4. Selecione a opção ***Importar uma configuração de VPN salva***
+  5. Selecione  seu arquivo **myconfig.opvpn** 
+  6. Adicione seu usuário e senha, salve e sua VPN está pronta para conexão no menu  **Conexões VPN**
